@@ -1,7 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import LandingPage from "./landingPage";
+import LandingPage from "./LandingPage";
+
 import CommitteePage from "./components/CommitteePage";
 import FeedbackPage from "./pages/FeedbackPage";
 /* USER */
