@@ -213,8 +213,8 @@ function LandingPage() {
             <div className="text-center mb-16"><h2 className="text-3xl font-bold text-slate-800">Contact Administration</h2></div>
             <div className="grid md:grid-cols-3 gap-8">
               {[
-                { role: "Sarpanch", name: "Shri M. S. Helvi", phone: "+91 9422983839", img: sarpanch },
-                { role: "Gram Sevak", name: "Shri. D. M. Sale", phone: "+91 8275914264", img: sarpanch },
+                { role: "Sarpanch", name: "Shri M. S. Helvi", phone: "+91 94229XXXXX", img: sarpanch },
+                { role: "Gram Sevak", name: "Shri. D. M. Sale", phone: "+91 82759XXXXX", img: sarpanch },
                 { role: "SDO Jath", name: "Shri Ajay Nashte", phone: "02344-246134", img: sarpanch },
               ].map((p, i) => (
                 <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition text-center group">
