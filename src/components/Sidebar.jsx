@@ -6,12 +6,12 @@ import {
 
 function Sidebar({ open, onClose }) {
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("user")) || {}; // Safe access
+  const user = JSON.parse(localStorage.getItem("user")) || {};
   const isAdmin = user?.role === "ADMIN";
 
   const logout = () => {
-    localStorage.clear();
-    navigate("/login");
+    localStorage.removeItem("user");
+    navigate("/", { replace: true });
   };
 
   const navClass = ({ isActive }) =>
@@ -20,16 +20,15 @@ function Sidebar({ open, onClose }) {
 
   return (
     <>
-      {/* Mobile Overlay - Only visible on small screens when sidebar is open */}
-      <div 
-        onClick={onClose} 
-        className={`fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-30 transition-opacity duration-300 md:hidden ${
+      <div
+        onClick={onClose}
+        className={`fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-30 md:hidden ${
           open ? "opacity-100 visible" : "opacity-0 invisible"
-        }`} 
+        }`}
       />
-      
-      <aside 
-        className={`fixed top-16 left-0 h-[calc(100vh-64px)] w-64 bg-white border-r border-slate-200 z-40 transform transition-transform duration-300 ${
+
+      <aside
+        className={`fixed top-16 left-0 h-[calc(100vh-64px)] w-64 bg-white border-r border-slate-200 z-40 transition-transform duration-300 ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -37,60 +36,63 @@ function Sidebar({ open, onClose }) {
           <nav className="space-y-1">
             {!isAdmin ? (
               <>
-                <div className="px-4 py-2 text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">User Menu</div>
-                <NavLink to="/user" end className={navClass} onClick={() => window.innerWidth < 768 && onClose()}>
+                <div className="px-4 py-2 text-xs font-bold text-slate-400 uppercase mb-2">
+                  User Menu
+                </div>
+
+                <NavLink to="/user" end className={navClass}>
                   <FaTachometerAlt /> Dashboard
                 </NavLink>
-                <NavLink to="/user/raise-issue" className={navClass} onClick={() => window.innerWidth < 768 && onClose()}>
+                <NavLink to="/user/raise-issue" className={navClass}>
                   <FaEdit /> Raise Issue
                 </NavLink>
-                <NavLink to="/user/my-issues" className={navClass} onClick={() => window.innerWidth < 768 && onClose()}>
+                <NavLink to="/user/my-issues" className={navClass}>
                   <FaHistory /> Issue History
                 </NavLink>
-                <NavLink to="/user/notices" className={navClass} onClick={() => window.innerWidth < 768 && onClose()}>
+                <NavLink to="/user/notices" className={navClass}>
                   <FaBullhorn /> Notices
                 </NavLink>
-                <NavLink to="/user/gov-schemes" className={navClass} onClick={() => window.innerWidth < 768 && onClose()}>
+                <NavLink to="/user/gov-schemes" className={navClass}>
                   <FaMapMarkedAlt /> Nearby Services
                 </NavLink>
-                
-                <div className="my-4 border-t border-slate-100"></div>
-                <div className="px-4 py-2 text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Account</div>
-                
-                <NavLink to="/user/profile" className={navClass} onClick={() => window.innerWidth < 768 && onClose()}>
+
+                <div className="my-4 border-t" />
+
+                <NavLink to="/user/profile" className={navClass}>
                   <FaUser /> My Profile
                 </NavLink>
-                <NavLink to="/user/change-password" className={navClass} onClick={() => window.innerWidth < 768 && onClose()}>
+                <NavLink to="/user/change-password" className={navClass}>
                   <FaKey /> Change Password
                 </NavLink>
               </>
             ) : (
               <>
-                <div className="px-4 py-2 text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Admin Control</div>
-                <NavLink to="/admin" end className={navClass} onClick={() => window.innerWidth < 768 && onClose()}>
+                <div className="px-4 py-2 text-xs font-bold text-slate-400 uppercase mb-2">
+                  Admin Control
+                </div>
+
+                <NavLink to="/admin" end className={navClass}>
                   <FaTachometerAlt /> Dashboard
                 </NavLink>
-                <NavLink to="/admin/issues" className={navClass} onClick={() => window.innerWidth < 768 && onClose()}>
+                <NavLink to="/admin/issues" className={navClass}>
                   <FaTasks /> Manage Issues
                 </NavLink>
-                <NavLink to="/admin/notices" className={navClass} onClick={() => window.innerWidth < 768 && onClose()}>
+                <NavLink to="/admin/notices" className={navClass}>
                   <FaBullhorn /> Manage Notices
                 </NavLink>
-                <NavLink to="/admin/notices/new" className={navClass} onClick={() => window.innerWidth < 768 && onClose()}>
+                <NavLink to="/admin/notices/new" className={navClass}>
                   <FaEdit /> Publish Notice
                 </NavLink>
               </>
             )}
           </nav>
 
-          <div className="pt-4 border-t border-slate-100 mt-2">
-             <button 
-                onClick={logout} 
-                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-red-600 hover:bg-red-50 transition-colors"
-             >
-                <FaSignOutAlt /> Logout
-             </button>
-          </div>
+          <button
+            onClick={logout}
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-red-600 hover:bg-red-50"
+          >
+            <FaSignOutAlt /> Logout
+          </button>
         </div>
       </aside>
     </>

@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
+import LandingPage from "./LandingPage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import LandingPage from "./LandingPage";
-
 import CommitteePage from "./components/CommitteePage";
 import FeedbackPage from "./pages/FeedbackPage";
+
 /* USER */
 import UserLayout from "./pages/user/UserLayout";
 import UserDashboard from "./pages/user/UserDashboard";
@@ -22,19 +22,28 @@ import ManageIssues from "./pages/admin/ManageIssues";
 import ManageNotices from "./pages/admin/ManageNotices";
 import PublishNotice from "./pages/admin/PublishNotice";
 
+/* PROTECTION */
+import ProtectedRoute from "./components/ProtectedRoute";
+
 function App() {
   return (
-    
     <Routes>
+      {/* Public */}
       <Route path="/" element={<LandingPage />} />
-
-      {/* //<Route path="/" element={<Login />} /> */}
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/committee" element={<CommitteePage />} />
       <Route path="/feedback" element={<FeedbackPage />} />
 
-      <Route path="/user" element={<UserLayout />}>
+      {/* User */}
+      <Route
+        path="/user"
+        element={
+          <ProtectedRoute>
+            <UserLayout />
+          </ProtectedRoute>
+        }
+      >
         <Route index element={<UserDashboard />} />
         <Route path="raise-issue" element={<RaiseIssue />} />
         <Route path="my-issues" element={<MyIssues />} />
@@ -44,7 +53,15 @@ function App() {
         <Route path="gov-schemes" element={<GovSchemes />} />
       </Route>
 
-      <Route path="/admin" element={<AdminLayout />}>
+      {/* Admin */}
+      <Route
+        path="/admin"
+        element={
+          <ProtectedRoute role="ADMIN">
+            <AdminLayout />
+          </ProtectedRoute>
+        }
+      >
         <Route index element={<AdminDashboard />} />
         <Route path="issues" element={<ManageIssues />} />
         <Route path="notices" element={<ManageNotices />} />

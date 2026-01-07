@@ -88,9 +88,9 @@ function Register({ closeModal, switchToLogin }) {
   return (
     <div className="p-8 max-h-[85vh] overflow-y-auto no-scrollbar">
       <div className="text-center mb-6">
-        <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4 shadow-lg">
+        {/* <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4 shadow-lg">
           <FaCity />
-        </div>
+        </div> */}
         <h2 className="text-2xl font-bold text-slate-800">Create Account</h2>
         <p className="text-slate-500 text-sm">
           Join the digital gram panchayat

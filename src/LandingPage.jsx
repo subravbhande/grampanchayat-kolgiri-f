@@ -6,10 +6,17 @@ import {
   FaHistory, FaHandHoldingHeart, FaHome, FaBookOpen, FaRulerCombined,
   FaFacebook, FaTwitter, FaInstagram, FaYoutube
 } from "react-icons/fa";
-
+import mandir from "./Assest/bhairavnath-mandir-kolgiri-sanamadi-sangli.avif";
+import hall from "./Assest/grampanchyat hall.jpg";
+import water from "./Assest/water tank.jpg";
+import road from "./Assest/main road.webp";
+import school from "./Assest/zpschool.jpg";
+import logo from "./Assest/gp logo.png";
+import sarpanch from "./Assest/sarpanch.jpg";
+import main_page from "./Assest/main page.avif"
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-
+//import logo from "./Assest/gp logo.jpg";
 function LandingPage() {
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
@@ -34,10 +41,10 @@ function LandingPage() {
 
   // Image Data
   const villageWorks = [
-    { title: "Z.P. School Kolgiri", img: "https://images.unsplash.com/photo-1599930113854-d6d7fd521f10?auto=format&fit=crop&w=600&q=80" },
-    { title: "Water Supply Tank", img: "https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&w=600&q=80" },
-    { title: "Gram Panchayat Hall", img: "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=600&q=80" },
-    { title: "Main Village Road", img: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=600&q=80" },
+    { title: "Z.P. School Kolgiri", img: school },
+    { title: "Water Supply Tank", img: water },
+    { title: "Gram Panchayat Hall", img: hall },
+    { title: "Main Village Road", img: road },
   ];
 
   return (
@@ -53,7 +60,7 @@ function LandingPage() {
             <div className="flex items-center gap-3 group cursor-pointer">
               {/* Logo added here */}
               <img 
-                src="/logo.png" 
+                src={logo}
                 alt="Kolgiri Logo" 
                 className="w-12 h-12 object-contain drop-shadow-md bg-white rounded-full p-1"
               />
@@ -79,7 +86,7 @@ function LandingPage() {
         {/* HERO */}
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?q=80&w=2070&auto=format&fit=crop" alt="Kolgiri" className="w-full h-full object-cover"/>
+            <img src={main_page} alt="Kolgiri" className="w-full h-full object-cover"/>
             <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-blue-900/40 to-slate-900"></div>
           </div>
           <div className="relative z-10 text-center max-w-4xl px-6 mt-16">
@@ -99,7 +106,7 @@ function LandingPage() {
         <div className="bg-blue-50 py-3 overflow-hidden border-b border-blue-100">
           <div className="flex w-max animate-marquee">
             {[1,2,3,4].map(i => (
-              <span key={i} className="mx-8 text-sm font-medium text-blue-800 flex items-center gap-2"><FaBullhorn className="text-blue-600"/> Special Gram Sabha scheduled at Kolgiri Panchayat Hall.<span className="w-1.5 h-1.5 bg-blue-400 rounded-full ml-8"></span></span>
+              <span key={i} className="mx-8 text-sm font-medium text-blue-800 flex items-center gap-2"><FaBullhorn className="text-blue-600"/> Special Gram Sabha scheduled at Kolgiri Panchayat Hall.<span className="w-1.5 h-1.5 bg-blue-400 rounded-full ml-8"></span> water from tommrow morning 10 AM</span>
             ))}
           </div>
         </div>
@@ -123,7 +130,13 @@ function LandingPage() {
             <div>
                 <div className="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold mb-4 uppercase tracking-wider">Village Overview</div>
                 <h2 className="text-4xl font-bold text-slate-800 mb-4">About Kolgiri</h2>
-                <p className="text-slate-600 leading-relaxed mb-6 text-lg">Kolgiri is a progressive village located in the <strong>Jat Block</strong> of <strong>Sangli district</strong>.</p>
+                <p className="text-slate-600 leading-relaxed mb-4 text-lg">
+  <strong>KOLGIRI</strong> is a rural village located in Jat Taluka of <strong>Sangli district</strong>, Maharashtra.
+</p>
+<p className="text-slate-600 leading-relaxed text-lg">
+  Agriculture and dairy are the main sources of livelihood. Marathi is the primary language, and the village maintains a close knit community rooted in tradition, festivals, and cooperative living.
+</p>
+
                 <div className="grid grid-cols-2 gap-6 mt-8">
                   <StatCard icon={<FaUsers />} title="Population" value="2,022" sub="Male: 1,066 | Female: 956" color="blue" />
                   <StatCard icon={<FaHome />} title="Households" value="374" sub="Total Families" color="amber" />
@@ -134,7 +147,7 @@ function LandingPage() {
             </div>
             <div className="relative">
                 <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                  <img src="https://images.unsplash.com/photo-1623152673832-6a8b7529434b?q=80&w=2000&auto=format&fit=crop" alt="Kolgiri" className="w-full h-full object-cover hover:scale-105 transition duration-700" />
+                  <img src={mandir} alt="Kolgiri" className="w-full h-full object-cover hover:scale-105 transition duration-700" />
                 </div>
                 <div className="absolute -bottom-6 -left-6 bg-white p-5 rounded-xl shadow-lg border border-slate-100">
                     <p className="text-xs text-slate-500 uppercase font-bold mb-1">Pincode</p><p className="text-3xl font-bold text-blue-700">416404</p>
@@ -171,7 +184,7 @@ function LandingPage() {
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 rounded-full border-2 border-blue-400 p-1">
-                      <img src="https://randomuser.me/api/portraits/men/32.jpg" className="w-full h-full rounded-full object-cover" alt="Sarpanch"/>
+                      <img src={sarpanch} className="w-full h-full rounded-full object-cover" alt="Sarpanch"/>
                   </div>
                   <div>
                       <h4 className="text-white font-bold text-xl">Shri. M. S. Helvi</h4>
@@ -200,9 +213,9 @@ function LandingPage() {
             <div className="text-center mb-16"><h2 className="text-3xl font-bold text-slate-800">Contact Administration</h2></div>
             <div className="grid md:grid-cols-3 gap-8">
               {[
-                { role: "Sarpanch", name: "Shri M. S. Helvi", phone: "+91 9422983839", img: "https://randomuser.me/api/portraits/men/32.jpg" },
-                { role: "Gram Sevak", name: "Shri. D. M. Sale", phone: "+91 8275914264", img: "https://randomuser.me/api/portraits/women/44.jpg" },
-                { role: "SDO Jath", name: "Shri Ajay Nashte", phone: "02344-246134", img: "https://randomuser.me/api/portraits/men/11.jpg" },
+                { role: "Sarpanch", name: "Shri M. S. Helvi", phone: "+91 9422983839", img: sarpanch },
+                { role: "Gram Sevak", name: "Shri. D. M. Sale", phone: "+91 8275914264", img: sarpanch },
+                { role: "SDO Jath", name: "Shri Ajay Nashte", phone: "02344-246134", img: sarpanch },
               ].map((p, i) => (
                 <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition text-center group">
                   <div className="w-24 h-24 mx-auto rounded-full p-1 border-2 border-blue-500 mb-4 group-hover:scale-105 transition-transform">
@@ -223,10 +236,10 @@ function LandingPage() {
               <div>
                 <div className="flex items-center gap-2 mb-6 text-white">
                     {/* Footer Logo */}
-                    <img src="/logo.png" alt="Kolgiri Logo" className="w-8 h-8 object-contain bg-white rounded-full p-1" />
+                    <img src={logo} alt="Kolgiri Logo" className="w-8 h-8 object-contain bg-white rounded-full p-1" />
                     <span className="font-bold text-xl">Kolgiri GP</span>
                 </div>
-                <div className="space-y-2 text-sm"><p><FaMapMarkerAlt className="inline mr-2 text-blue-500" /> Gram Panchayat Kolgiri, Jat, Sangli - 416404</p><p><FaPhoneAlt className="inline mr-2 text-blue-500" /> +91 98765 43210</p></div>
+                <div className="space-y-2 text-sm"><p><FaMapMarkerAlt className="inline mr-2 text-blue-500" /> Gram Panchayat Kolgiri, Jat, Sangli - 416404</p><p><FaPhoneAlt className="inline mr-2 text-blue-500" /> +91 98765 XXXXX</p></div>
               </div>
               <div>
                 <h4 className="text-white font-bold mb-6">Connect With Us</h4>
@@ -239,7 +252,7 @@ function LandingPage() {
               </div>
               <div><h4 className="text-white font-bold mb-6">Quick Links</h4><ul className="space-y-3 text-sm"><li><a href="#about" className="hover:text-blue-400">About Kolgiri</a></li><li><a href="#services" className="hover:text-blue-400">Services</a></li><li><a href="#contact" className="hover:text-blue-400">Contact</a></li></ul></div>
           </div>
-          <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">© 2025 Gram Panchayat Kolgiri.</div>
+          <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">© 2025 Gram Panchayat Kolgiri. Designed and developed by <b>Subrav Bhande</b></div>
         </footer>
 
       </div> {/* END OF BLURRED CONTENT */}
@@ -287,7 +300,8 @@ function LandingPage() {
 function ServiceCard({ icon, title, desc, color }) {
   return (
     <div className="group p-8 rounded-3xl bg-white border border-slate-100 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-300 hover:-translate-y-1">
-      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mb-6 ${color} bg-opacity-10`}>{icon}</div>
+      <div className={`w-14 h-14 rounded-full flex items-center justify-center text-2xl mb-6 ${color}`}>
+{icon}</div>
       <h3 className="text-xl font-bold text-slate-800 mb-3 group-hover:text-blue-700 transition-colors">{title}</h3>
       <p className="text-slate-500 leading-relaxed">{desc}</p>
     </div>

@@ -13,3 +13,9 @@
 .animate-scroll:hover {
   animation-play-state: paused;
 }
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
