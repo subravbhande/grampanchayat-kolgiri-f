@@ -21,8 +21,8 @@ function Header({ onMenuClick }) {
   }, []);
 
   const logout = () => {
-    localStorage.clear();
-    navigate("/login");
+    localStorage.removeItem("user");
+    navigate("/", { replace: true });
   };
 
   return (
