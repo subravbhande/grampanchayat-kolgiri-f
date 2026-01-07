@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
-import api from "../api";
+import api from "../services/api";
 import { FaCity } from "react-icons/fa";
 
 function Register({ closeModal, switchToLogin }) {
